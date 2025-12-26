@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nedu Coffee • Where Coffee Culture Meets Lagos Energy</title>
+  <meta name="description" content="Nedu Coffee Lekki: Artisan coffee, calm atmosphere & handcrafted moments in the heart of Lagos. Menu, ambience, reviews, and more."/>
+  <link rel="icon" href="https://im.runware.ai/image/ws/2/ii/d8c07c64-0667-4491-9eff-7e9c6b7cd728.jpg"/>
+  <style>
+    :root {
+      --african-brown: #814A0E;
+      --african-gold: #F6B93B;
+      --primary-dark: #1d150a;
+      --background: #f9f6f0;
+      --text-main: #2c1807;
+      --accent: #2A5D2E;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #075E54;
+      --card-bg: #fff;
+      --border-radius: 18px;
+      --shadow: 0 6px 26px -10px #633b1a33;
+      --highlight: #fff8eb;
+      --section-space: 90px;
+      --section-space-mobile: 52px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
+      color: var(--text-main);
+      background: var(--background);
+      line-height: 1.7;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(249,246,240,0.96);
+      box-shadow: 0 2px 10px #c3925946;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 36px;
+      height: 68px;
+    }
+    .nav-content {
+      max-width: 1300px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+    }
+    .nav-logo span {
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--african-brown);
+      font-size: 1.23rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--african-brown);
+      font-weight: 500;
+      opacity: 0.92;
+      font-size: 1rem;
+      transition: color 0.2s;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--african-gold);
+    }
+    .nav-cta {
+      display: flex;
+      gap: 16px;
+    }
+    .nav-cta button, .nav-cta a {
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 1rem;
+      background: var(--african-gold);
+      color: var(--primary-dark);
+      border: none;
+      border-radius: 100px;
+      padding: 8px 26px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #fff8e750;
+      margin-left: 4px;
+      outline: none;
+      transition: background 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .nav-cta button:hover, .nav-cta a:hover {
+      background: var(--african-brown);
+      color: #fff;
+    }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      width: 28px; height: 28px;
+      cursor: pointer;
+      justify-content: center;
+      gap: 6px;
+    }
+    .nav-burger span {
+      height: 3px; border-radius: 2px;
+      background: var(--primary-dark);
+      width: 100%; display: block;
+      transition: all .3s cubic-bezier(.43,1.2,.68,1.03);
+    }
+
+    /* HERO */
+    header.hero {
+      width: 100vw;
+      height: 650px;
+      min-height: 480px;
+      background: linear-gradient(rgba(28, 16, 7, 0.35), rgba(22,10,5,.35)), url('https://im.runware.ai/image/ws/2/ii/a264370d-a1fb-4800-b361-b2cc0d22b36a.jpg') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      position: relative;
+      padding: 48px 0 0 0;
+    }
+    .hero-content {
+      max-width: 570px;
+      margin-left: 5vw;
+      color: #fff;
+      z-index: 1;
+      padding: 36px 38px 40px 38px;
+      background: linear-gradient(90deg, rgba(130,74,14,0.76) 75%, rgba(246,185,59,0.15) 100%);
+      border-radius: var(--border-radius);
+      box-shadow: 0 28px 70px -20px #2A5D2E24;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.13;
+      margin: 0 0 20px 0;
+      text-shadow: 0 4px 20px #0001;
+    }
+    .hero-content p {
+      font-size: 1.24rem;
+      font-weight: 400;
+      margin-bottom: 32px;
+      color: #ffe8cd;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 18px;
+      margin-top: 10px;
+    }
+    .hero-ctas a, .hero-ctas button {
+      background: var(--african-gold);
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 1.08rem;
+      border: none;
+      border-radius: 32px;
+      padding: 12px 30px;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 16px #fff0c833;
+      text-decoration: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-ctas a.cta-whatsapp {
+      background: var(--whatsapp);
+      color: #fff;
+    }
+    .hero-ctas a.cta-whatsapp:hover {
+      background: var(--whatsapp-dark);
+    }
+    .hero-ctas a:hover, .hero-ctas button:hover {
+      background: var(--african-brown);
+      color: #fff;
+    }
+
+    /* SECTION STYLES */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--section-space) 24px;
+      border-radius: var(--border-radius);
+      background: none;
+      position: relative;
+    }
+    section.section-alt {
+      background: var(--highlight);
+      box-shadow: 0 4px 32px -19px #633b1a21;
+      border-radius: var(--border-radius);
+    }
+    section h2 {
+      font-size: 2.15rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+      color: var(--african-brown);
+      letter-spacing: -1px;
+    }
+    section .section-intro {
+      font-size: 1.22rem;
+      color: #624619;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    /* ABOUT */
+    .about-story {
+      font-size: 1.18rem;
+      color: #6b460f;
+      max-width: 770px;
+    }
+    /* SIGNATURE MENU */
+    .menu-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 28px 32px;
+    }
+    .menu-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 28px 24px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+    .menu-card:hover {
+      transform: translateY(-7px) scale(1.028);
+      box-shadow: 0 18px 36px -10px #a26c3237;
+    }
+    .menu-card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .menu-card-img {
+      width: 100%;
+      min-height: 70px;
+      max-height: 110px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      box-shadow: 0 1px 7px #2c180711;
+    }
+    .menu-card-title {
+      font-weight: 700;
+      font-size: 1.13rem;
+      color: var(--african-brown);
+      margin-bottom: 4px;
+    }
+    .menu-card-desc {
+      font-size: 1rem;
+      color: #77562e;
+    }
+
+    /* EXPERIENCE */
+    .ambience-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px,1fr));
+      gap: 32px;
+      margin: 36px 0 0 0;
+    }
+    .ambience-img {
+      width: 100%;
+      height: 220px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 10px 24px #633b1a23;
+      margin-bottom: 0;
+      background: #ffe7c6;
+    }
+    .ambience-features {
+      margin-top: 24px;
+      font-size: 1.08rem;
+      color: #856535;
+    }
+    /* WHY NEDU */
+    .why-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 34px;
+      font-size: 1.09rem;
+      color: #714c1b;
+    }
+    .why-highlights li {
+      padding-left: 32px;
+      position: relative;
+      margin: 0;
+    }
+    .why-highlights li:before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--african-gold);
+      font-weight: 700;
+      font-size: 1.12em;
+    }
+
+    /* REVIEWS */
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px,1fr));
+      gap: 32px;
+      margin-top: 24px;
+    }
+    .review-card {
+      background: #fff;
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+    .review-img {
+      width: 64px; height: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 6px;
+      border: 2px solid var(--african-gold);
+    }
+    .review-name {
+      font-weight: 700;
+      color: var(--african-brown);
+    }
+    .review-role {
+      font-size: .98rem;
+      color: #84551b;
+      margin-bottom: 5px;
+    }
+    .review-stars {
+      color: #F6B93B;
+      font-size: 1.13rem;
+      letter-spacing: 2px;
+    }
+    .review-text {
+      margin-top: 8px;
+      font-size: 1.07rem;
+      color: #5b4117;
+    }
+    /* FAQ */
+    .faq-list {
+      margin-top: 32px;
+      max-width: 900px;
+    }
+    .faq-item {
+      margin: 0 0 28px 0;
+      cursor: pointer;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #ad81403c;
+      padding: 20px 28px;
+      transition: box-shadow .2s;
+    }
+    .faq-item.open, .faq-item:hover {
+      box-shadow: 0 10px 30px -7px #a26c3249;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: var(--african-brown);
+      font-size: 1.08rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .faq-icon {
+      font-size: 1.5em;
+      margin-left: 16px;
+      transition: transform .22s;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(90deg);
+    }
+    .faq-a {
+      margin-top: 7px;
+      color: #77562e;
+      font-size: 1.03rem;
+      display: none;
+      line-height: 1.54;
+    }
+    .faq-item.open .faq-a {
+      display: block;
+      animation: faqfadein .4s cubic-bezier(.17,.67,.9,.33);
+    }
+    @keyframes faqfadein {
+      0% { opacity: 0; max-height: 0; }
+      100% { opacity: 1; max-height: 280px; }
+    }
+    /* CTA */
+    .cta-section {
+      padding: var(--section-space) 24px;
+      text-align: center;
+      background: linear-gradient(90deg, #fbeed5 80%, #c6eed5 115%);
+      border-radius: 20px;
+      margin-bottom: var(--section-space);
+      box-shadow: 0 6px 38px -5px #dea85e22;
+    }
+    .cta-section h3 {
+      font-size: 2.02rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 36px;
+      letter-spacing: -1px;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+    .cta-btns a {
+      background: var(--african-brown);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.12rem;
+      border-radius: 40px;
+      padding: 14px 38px;
+      margin-top: 8px;
+      text-decoration: none;
+      box-shadow: 0 2px 16px #c3925922;
+      transition: background 0.19s, color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cta-btns a.cta-whatsapp {
+      background: var(--whatsapp);
+    }
+    .cta-btns a.cta-instagram {
+      background: #ef4e76;
+    }
+    .cta-btns a:hover {
+      background: var(--african-gold);
+      color: var(--text-main);
+    }
+    /* FOOTER */
+    footer {
+      padding: 40px 18px 26px 18px;
+      background: #fff8ed;
+      border-top: 1.5px solid #e5d7c159;
+      box-shadow: 0 -2px 16px #e8b96e19;
+      font-size: 1.07rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .footer-top {
+      display: flex;
+      gap: 38px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 14px;
+    }
+    .footer-logo img {
+      width: 48px; height: 48px;
+      border-radius: 16px;
+      margin-bottom: 4px;
+      box-shadow: 0 2px 8px #dbb37a32;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .footer-socials a {
+      color: var(--african-brown);
+      text-decoration: none;
+      font-size: 1.45em;
+      margin-right: 2px;
+      transition: color .17s;
+    }
+    .footer-socials a:hover {
+      color: var(--accent);
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 7px;
+      align-items: center;
+    }
+    .footer-contact .footer-addr {
+      font-weight: 700;
+      color: var(--african-brown);
+      font-size: 1.07rem;
+      margin-bottom: 3px;
+    }
+    .footer-contact .footer-hours {
+      color: #936c36;
+      font-size: 0.99rem;
+      margin-bottom: 2px;
+    }
+    .footer-whatsapp {
+      margin-top: 7px;
+    }
+    .footer-whatsapp a {
+      background: var(--whatsapp);
+      color: #fff;
+      font-weight: 650;
+      text-decoration: none;
+      border-radius: 32px;
+      padding: 7px 22px 7px 18px;
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.09em;
+      transition: background .17s;
+      box-shadow: 0 1px 8px #ddecdbad;
+      margin-top: 4px;
+    }
+    .footer-whatsapp a:hover {
+      background: var(--whatsapp-dark);
+      color: #fff;
+    }
+    .footer-bottom {
+      width: 100%;
+      font-size: 1em;
+      color: #725013;
+      margin-top: 4px;
+    }
+    .madeby {
+      font-size: .98em;
+      color: #b59a80;
+      display: block;
+      margin-top: 8px;
+      font-weight: 400;
+    }
+    /* WHATSAPP FLOATING BUTTON */
+    .whatsapp-float {
+      position: fixed;
+      z-index: 1040;
+      right: 28px;
+      bottom: 28px;
+      background: var(--whatsapp);
+      color: #fff;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 30px #39956751;
+      cursor: pointer;
+      transition: background .18s;
+      border: none;
+      font-size: 2.33em;
+    }
+    .whatsapp-float:hover {
+      background: var(--whatsapp-dark);
+    }
+    /* SCROLLBAR */
+    ::-webkit-scrollbar {
+      width: 9px;
+      background: #fdeccb;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f6b93b;
+      border-radius: 15px;
+    }
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 8px;
+        height: 56px;
+      }
+      .nav-content {
+        padding: 0 4px;
+      }
+      .hero-content {
+        margin-left: 2.5vw;
+        padding: 24px 17px 32px 17px;
+      }
+      section, .cta-section {
+        padding: var(--section-space-mobile) 8px;
+      }
+    }
+    @media (max-width: 650px) {
+      .nav-links, .nav-cta {
+        display: none;
+      }
+      .nav-burger {
+        display: flex;
+      }
+      nav.active .nav-links, nav.active .nav-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        background: #fff8ed;
+        position: absolute;
+        left: 0; right: 0; top: 56px;
+        padding: 20px 0 22px 0;
+        z-index: 99;
+        box-shadow: 0 6px 16px #c392595f;
+        border-radius: 0 0 16px 16px;
+      }
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+      section h2 {
+        font-size: 1.23rem;
+      }
+      .ambience-gallery {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      .reviews-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .menu-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/2347012345678" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill="none" />
+      <g><path fill="#fff" d="M15.99 7.18c-4.86 0-8.8 3.94-8.8 8.8 0 1.56.41 3.09 1.19 4.43L7.18 24.8l4.46-1.16a8.84 8.84 0 0 0 4.36 1.13h.02c4.86 0 8.8-3.94 8.8-8.8 0-2.36-.92-4.59-2.59-6.26A8.79 8.79 0 0 0 15.99 7.18Zm0 15.86c-1.41 0-2.79-.36-4-1.05l-.28-.16-2.64.68.71-2.58-.18-.28a7.26 7.26 0 1 1 13.39-3.91c0 4-3.26 7.27-7.28 7.27Zm3.99-5.48c-.21-.11-1.21-.6-1.4-.67-.18-.07-.31-.11-.44.11-.13.22-.51.67-.63.8-.11.12-.22.13-.43.02-.21-.11-.89-.33-1.71-1.04-.63-.53-1.05-1.18-1.18-1.39-.12-.21-.01-.33.1-.44.1-.1.21-.26.31-.39.1-.13.13-.22.2-.36.07-.13.04-.26-.02-.37-.07-.11-.44-1.07-.61-1.47-.16-.39-.33-.34-.44-.35l-.38-.01c-.12 0-.3.04-.47.19-.16.15-.62.59-.62 1.44 0 .85.63 1.68.72 1.8.09.13 1.23 1.81 3.02 2.47.42.14.74.23.99.3.42.13.81.11 1.12.07.34-.05 1.04-.43 1.18-.85.15-.42.15-.8.1-.88-.05-.08-.18-.13-.39-.23Z"/></g>
+    </svg>
+  </a>
+
+  <!-- NAVIGATION -->
+  <nav id="mainNav">
+    <div class="nav-content">
+      <div class="nav-logo">
+        <img src="https://im.runware.ai/image/ws/2/ii/d8c07c64-0667-4491-9eff-7e9c6b7cd728.jpg" alt="Nedu Coffee Logo" />
+        <span>Nedu Coffee</span>
+      </div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#ambience">Experience</a>
+        <a href="#why">Why Nedu</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#menu">View Our Menu</a>
+        <a href="https://wa.me/2347012345678" target="_blank" class="cta-whatsapp" aria-label="WhatsApp">WhatsApp</a>
+      </div>
+      <div class="nav-burger" id="navBurger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Where Coffee Culture Meets Lagos Energy</h1>
+      <p>Artisan coffee, calm atmosphere, and handcrafted moments in the heart of Lekki.</p>
+      <div class="hero-ctas">
+        <a href="#menu">View Our Menu</a>
+        <a href="#contact">Visit Nedu Coffee</a>
+        <a href="https://wa.me/2347012345678" target="_blank" class="cta-whatsapp" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="none"/><g><path fill="#fff" d="M15.99 7.18c-4.86 0-8.8 3.94-8.8 8.8 0 1.56.41 3.09 1.19 4.43L7.18 24.8l4.46-1.16a8.84 8.84 0 0 0 4.36 1.13h.02c4.86 0 8.8-3.94 8.8-8.8 0-2.36-.92-4.59-2.59-6.26A8.79 8.79 0 0 0 15.99 7.18Zm0 15.86c-1.41 0-2.79-.36-4-1.05l-.28-.16-2.64.68.71-2.58-.18-.28a7.26 7.26 0 1 1 13.39-3.91c0 4-3.26 7.27-7.28 7.27Zm3.99-5.48c-.21-.11-1.21-.6-1.4-.67-.18-.07-.31-.11-.44.11-.13.22-.51.67-.63.8-.11.12-.22.13-.43.02-.21-.11-.89-.33-1.71-1.04-.63-.53-1.05-1.18-1.18-1.39-.12-.21-.01-.33.1-.44.1-.1.21-.26.31-.39.1-.13.13-.22.2-.36.07-.13.04-.26-.02-.37-.07-.11-.44-1.07-.61-1.47-.16-.39-.33-.34-.44-.35l-.38-.01c-.12 0-.3.04-.47.19-.16.15-.62.59-.62 1.44 0 .85.63 1.68.72 1.8.09.13 1.23 1.81 3.02 2.47.42.14.74.23.99.3.42.13.81.11 1.12.07.34-.05 1.04-.43 1.18-.85.15-.42.15-.8.1-.88-.05-.08-.18-.13-.39-.23Z"/></g></svg>
+          Message Us
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT NEDU COFFEE -->
+  <section id="about">
+    <h2>About Nedu Coffee</h2>
+    <p class="section-intro">Founded in Lekki and inspired by both Lagos vibrance and global coffee tradition, Nedu Coffee is more than just a café—it’s a gathering place for taste, connection, and Lagos community.</p>
+    <div class="about-story">
+      <p>
+        Nedu Coffee began in the beating heart of Lekki, Lagos—crafted by lovers of premium coffee and conversation. Our mission: to provide not just the finest artisan beans and drinks, but a true experience—a space where everyone can feel at ease, whether you’re here for a brief escape, a work session, or lively discussions.<br><br>
+        We obsess over quality, sourcing only the best beans both locally and worldwide. Our team of expert baristas lives for handcrafting each cup, and our Lekki space blends the spirit of Lagos with the comfort of a global cafe scene.<br><br>
+        More than a spot for coffee, Nedu is a home for the vibrant, diverse, and ambitious, where relationships are forged and moments are made every day.
+      </p>
+    </div>
+  </section>
+
+  <!-- SIGNATURE COFFEE & MENU HIGHLIGHTS -->
+  <section id="menu" class="section-alt">
+    <h2>Signature Coffee & Menu Highlights</h2>
+    <div class="menu-cards">
+      <div class="menu-card">
+        <span class="menu-card-icon">☕️</span>
+        <img class="menu-card-img" src="https://im.runware.ai/image/ws/2/ii/e20e6079-372b-4a3d-a418-af1ad7530deb.jpg" alt="Espresso hand brewed African coffee"/>
+        <div class="menu-card-title">Espresso & Hand-Brewed Coffee</div>
+        <div class="menu-card-desc">Rich single origins and blends, prepared by expert baristas using top beans from Africa and beyond.</div>
+      </div>
+      <div class="menu-card">
+        <span class="menu-card-icon">🌱</span>
+        <img class="menu-card-img" src="https://im.runware.ai/image/ws/2/ii/e20e6079-372b-4a3d-a418-af1ad7530deb.jpg" alt="Specialty Nigerian-inspired blends"/>
+        <div class="menu-card-title">Specialty Nigerian-Inspired Blends</div>
+        <div class="menu-card-desc">Unique house signatures with flavors and ingredients inspired by Nigerian culture and local taste.</div>
+      </div>
+      <div class="menu-card">
+        <span class="menu-card-icon">🥐</span>
+        <img class="menu-card-img" src="https://im.runware.ai/image/ws/2/ii/e20e6079-372b-4a3d-a418-af1ad7530deb.jpg" alt="Pastries and light bites"/>
+        <div class="menu-card-title">Pastries & Light Bites</div>
+        <div class="menu-card-desc">Fresh-baked croissants, buns, artisan bread, and delightful treats to pair with your coffee.</div>
+      </div>
+      <div class="menu-card">
+        <span class="menu-card-icon">🥛</span>
+        <img class="menu-card-img" src="https://im.runware.ai/image/ws/2/ii/e20e6079-372b-4a3d-a418-af1ad7530deb.jpg" alt="Vegan and dairy-free options"/>
+        <div class="menu-card-title">Vegan & Dairy-Free Options</div>
+        <div class="menu-card-desc">Full selection of plant-based milks and vegan pastries to support every lifestyle.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & AMBIENCE -->
+  <section id="ambience">
+    <h2>Experience & Ambience</h2>
+    <p class="section-intro">Feel the pulse of Lagos with Nedu Coffee’s calm yet vibrant environment—crafted for you, whether work or relaxation is on the agenda.</p>
+    <div class="ambience-gallery">
+      <img class="ambience-img" src="https://im.runware.ai/image/ws/2/ii/584c84a1-2313-43df-a1ed-21bf94abfe48.jpg" alt="Coffee shop ambience, meetings and solo work">
+      <img class="ambience-img" src="https://im.runware.ai/image/ws/2/ii/15921e6a-8f43-43e8-8f94-8e51140ef693.jpg" alt="Cozy Lagos coffee shop ambience with people">
+      <img class="ambience-img" src="https://im.runware.ai/image/ws/2/ii/584c84a1-2313-43df-a1ed-21bf94abfe48.jpg" alt="Indoor and outdoor modern cafe seating in Lagos">
+    </div>
+    <div class="ambience-features">
+      <ul>
+        <li>Calm but vibrant atmosphere—perfect for meetings, dates, solo work</li>
+        <li>Free ultra-fast Wi-Fi & power outlets at every table</li>
+        <li>Friendly, professional baristas</li>
+        <li>Beautiful indoor and sunny outdoor seating</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY NEDU COFFEE -->
+  <section id="why" class="section-alt">
+    <h2>Why Nedu Coffee</h2>
+    <ul class="why-highlights">
+      <li>Ethically sourced beans</li>
+      <li>Expert baristas</li>
+      <li>Premium ingredients</li>
+      <li>Consistent taste</li>
+      <li>Community-driven space</li>
+      <li>Central Lekki location</li>
+    </ul>
+  </section>
+  
+  <!-- CUSTOMER REVIEWS -->
+  <section id="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="reviews-container">
+      <div class="review-card">
+        <img class="review-img" src="https://im.runware.ai/image/ws/2/ii/c3f85e9a-d37d-482a-acbf-e78a391fd4cf.jpg" alt="Tola A. Lekki" />
+        <div class="review-name">Tola A.</div>
+        <div class="review-role">Lekki</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Nedu Coffee is my go-to spot for work and meetings. The atmosphere is calm and the coffee is always perfect.</div>
+      </div>
+      <div class="review-card">
+        <img class="review-img" src="https://im.runware.ai/image/ws/2/ii/fc880d00-cfa2-4f82-b978-12b21f3f03b4.jpg" alt="David K. Creative Director" />
+        <div class="review-name">David K.</div>
+        <div class="review-role">Creative Director</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">Premium coffee, great music, and excellent service. It feels like a world-class café right here in Lagos.</div>
+      </div>
+      <div class="review-card">
+        <img class="review-img" src="https://im.runware.ai/image/ws/2/ii/7c583d72-1dd1-4feb-91df-436534e42cce.jpg" alt="Amaka O. Entrepreneur" />
+        <div class="review-name">Amaka O.</div>
+        <div class="review-role">Entrepreneur</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">I love the consistency and warmth. You can feel the intention behind everything.</div>
+      </div>
+      <div class="review-card">
+        <img class="review-img" src="https://im.runware.ai/image/ws/2/ii/1deaf919-8be9-4005-898a-64e8039836ec.jpg" alt="Michael S. Visitor" />
+        <div class="review-name">Michael S.</div>
+        <div class="review-role">Visitor</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">One of the best coffee experiences I’ve had in Africa. Highly recommended.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="section-alt">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">1. Where is Nedu Coffee located in Lekki? <span class="faq-icon">▶</span></div>
+        <div class="faq-a">Nedu Coffee is centrally located in Lekki, Lagos — check the address and map in the contact section below!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">2. Do you offer Wi-Fi and workspace-friendly seating? <span class="faq-icon">▶</span></div>
+        <div class="faq-a">Yes! We offer free, high-speed Wi-Fi and plenty of power outlets for your laptops and devices. Perfect for working or meetings.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">3. Do you have vegan or dairy-free options? <span class="faq-icon">▶</span></div>
+        <div class="faq-a">Absolutely — our menu features plant-based milks and vegan-friendly pastries and light bites.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">4. Can I host small meetings or events? <span class="faq-icon">▶</span></div>
+        <div class="faq-a">Yes, our space is ideal for small gatherings, meetings, or informal events. Contact us on WhatsApp for details and availability.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">5. What are your opening hours? <span class="faq-icon">▶</span></div>
+        <div class="faq-a">We’re open daily: Mon-Fri 7:30AM—7:00PM, Sat-Sun 8:00AM—8:00PM.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">6. Do you offer takeaway or delivery? <span class="faq-icon">▶</span></div>
+        <div class="faq-a">Yes! Enjoy our artisan coffee and food to go, or order delivery via our partners (coming soon). Message us on WhatsApp for info.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION SECTION -->
+  <section class="cta-section" id="contact">
+    <h3>Your Next Coffee Moment Starts Here</h3>
+    <div class="cta-btns">
+      <a href="https://goo.gl/maps/coffeelekki" target="_blank" title="Get Directions">Get Directions</a>
+      <a href="https://instagram.com/neducoffee" class="cta-instagram" target="_blank" title="Follow us on Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#fff"/><path d="M16.67 2H7.33A5.33 5.33 0 0 0 2 7.33v9.34A5.33 5.33 0 0 0 7.33 22h9.34A5.33 5.33 0 0 0 22 16.67V7.33A5.33 5.33 0 0 0 16.67 2ZM20 16.67A3.34 3.34 0 0 1 16.67 20H7.33A3.34 3.34 0 0 1 4 16.67V7.33A3.34 3.34 0 0 1 7.33 4h9.34A3.34 3.34 0 0 1 20 7.33v9.34ZM12 7.99A4.01 4.01 0 0 0 8 12a4.01 4.01 0 1 0 8.01 0A4.01 4.01 0 0 0 12 7.99Zm0 6.65A2.65 2.65 0 1 1 14.66 12 2.65 2.65 0 0 1 12 14.64Zm4.59-6.92a.91.91 0 1 1-.91-.91.91.91 0 0 1 .91.91Z" fill="#ef4e76"/></svg> Instagram</a>
+      <a href="https://wa.me/2347012345678" class="cta-whatsapp" target="_blank" title="Message on WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="none"/><g><path fill="#fff" d="M15.99 7.18c-4.86 0-8.8 3.94-8.8 8.8 0 1.56.41 3.09 1.19 4.43L7.18 24.8l4.46-1.16a8.84 8.84 0 0 0 4.36 1.13h.02c4.86 0 8.8-3.94 8.8-8.8 0-2.36-.92-4.59-2.59-6.26A8.79 8.79 0 0 0 15.99 7.18Zm0 15.86c-1.41 0-2.79-.36-4-1.05l-.28-.16-2.64.68.71-2.58-.18-.28a7.26 7.26 0 1 1 13.39-3.91c0 4-3.26 7.27-7.28 7.27Zm3.99-5.48c-.21-.11-1.21-.6-1.4-.67-.18-.07-.31-.11-.44.11-.13.22-.51.67-.63.8-.11.12-.22.13-.43.02-.21-.11-.89-.33-1.71-1.04-.63-.53-1.05-1.18-1.18-1.39-.12-.21-.01-.33.1-.44.1-.1.21-.26.31-.39.1-.13.13-.22.2-.36.07-.13.04-.26-.02-.37-.07-.11-.44-1.07-.61-1.47-.16-.39-.33-.34-.44-.35l-.38-.01c-.12 0-.3.04-.47.19-.16.15-.62.59-.62 1.44 0 .85.63 1.68.72 1.8.09.13 1.23 1.81 3.02 2.47.42.14.74.23.99.3.42.13.81.11 1.12.07.34-.05 1.04-.43 1.18-.85.15-.42.15-.8.1-.88-.05-.08-.18-.13-.39-.23Z"/></g></svg> Visit Us Today
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="https://im.runware.ai/image/ws/2/ii/d8c07c64-0667-4491-9eff-7e9c6b7cd728.jpg" alt="Nedu Coffee Logo"/>
+        <div style="font-weight:700; font-size:1.1em; color:var(--african-brown);margin-top:-3px;">Nedu Coffee</div>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-addr">
+          Lekki, Lagos<br> <small style="font-weight:400;">Nigeria</small>
+        </div>
+        <div class="footer-hours">Mon-Fri: 7:30am–7pm &bull; Sat-Sun: 8am–8pm</div>
+        <div class="footer-whatsapp">
+          <a href="https://wa.me/2347012345678" target="_blank" aria-label="WhatsApp"><svg width="18" height="18" style="margin-right:6px" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="none"/><g><path fill="#fff" d="M15.99 7.18c-4.86 0-8.8 3.94-8.8 8.8 0 1.56.41 3.09 1.19 4.43L7.18 24.8l4.46-1.16a8.84 8.84 0 0 0 4.36 1.13h.02c4.86 0 8.8-3.94 8.8-8.8 0-2.36-.92-4.59-2.59-6.26A8.79 8.79 0 0 0 15.99 7.18Zm0 15.86c-1.41 0-2.79-.36-4-1.05l-.28-.16-2.64.68.71-2.58-.18-.28a7.26 7.26 0 1 1 13.39-3.91c0 4-3.26 7.27-7.28 7.27Zm3.99-5.48c-.21-.11-1.21-.6-1.4-.67-.18-.07-.31-.11-.44.11-.13.22-.51.67-.63.8-.11.12-.22.13-.43.02-.21-.11-.89-.33-1.71-1.04-.63-.53-1.05-1.18-1.18-1.39-.12-.21-.01-.33.1-.44.1-.1.21-.26.31-.39.1-.13.13-.22.2-.36.07-.13.04-.26-.02-.37-.07-.11-.44-1.07-.61-1.47-.16-.39-.33-.34-.44-.35l-.38-.01c-.12 0-.3.04-.47.19-.16.15-.62.59-.62 1.44 0 .85.63 1.68.72 1.8.09.13 1.23 1.81 3.02 2.47.42.14.74.23.99.3.42.13.81.11 1.12.07.34-.05 1.04-.43 1.18-.85.15-.42.15-.8.1-.88-.05-.08-.18-.13-.39-.23Z"/></g></svg> Chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-socials">
+        <a href="https://instagram.com/neducoffee" target="_blank" aria-label="Instagram"><svg width="23" height="23" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#fff"/><path d="M16.67 2H7.33A5.33 5.33 0 0 0 2 7.33v9.34A5.33 5.33 0 0 0 7.33 22h9.34A5.33 5.33 0 0 0 22 16.67V7.33A5.33 5.33 0 0 0 16.67 2ZM20 16.67A3.34 3.34 0 0 1 16.67 20H7.33A3.34 3.34 0 0 1 4 16.67V7.33A3.34 3.34 0 0 1 7.33 4h9.34A3.34 3.34 0 0 1 20 7.33v9.34ZM12 7.99A4.01 4.01 0 0 0 8 12a4.01 4.01 0 1 0 8.01 0A4.01 4.01 0 0 0 12 7.99Zm0 6.65A2.65 2.65 0 1 1 14.66 12 2.65 2.65 0 0 1 12 14.64Zm4.59-6.92a.91.91 0 1 1-.91-.91.91.91 0 0 1 .91.91Z" fill="#ef4e76"/></svg></a>
+        <a href="mailto:info@neducoffee.com" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#643307" d="M19.75 19.75H4.25V4.25h15.5v15.5zM6.92 8.92v6.16h10.16V8.92H6.92zm8.18 1.25l-2.17 2.1a1.25 1.25 0 0 1-1.67 0l-2.17-2.1h6.01zm-8.18-4.42v.85l6.06 5.88 6.06-5.88v-.85H6.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; Nedu Coffee
+      <span class="madeby">made with ❤️ by adorrable.dev</span>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation smooth scroll & active highlight
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const navBurger = document.getElementById('navBurger');
+    const nav = document.getElementById('mainNav');
+    navBurger.onclick = function() {
+      nav.classList.toggle('active');
+    };
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        nav.classList.remove('active');
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    // Highlight nav on scroll
+    const sections = ["#hero", "#about", "#menu", "#ambience", "#why", "#reviews", "#faq", "#contact"];
+    window.addEventListener('scroll', () => {
+      let found = false;
+      for (let i = sections.length - 1; i >= 0; --i) {
+        let sec = document.querySelector(sections[i]);
+        if(sec && window.scrollY + 150 >= sec.offsetTop) {
+          document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+          let current = document.querySelector('.nav-links a[href="'+sections[i]+'"]');
+          if(current) current.classList.add('active');
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+      }
+    });
+    // Smooth scroll for nav and CTA anchors
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', function(e) {
+        const hash = this.getAttribute('href');
+        if(hash && hash.length > 1 && document.querySelector(hash)) {
+          e.preventDefault();
+          document.querySelector(hash).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    // FAQ toggles
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      item.onclick = function(e) {
+        this.classList.toggle('open');
+      };
+    });
+  </script>
+</body>
+</html>
